@@ -42,19 +42,24 @@ print(sum_n(4))
 
 Question 3
 
-def cnt_primes(m):
+def is_prime(n, i=2):
+    if n <= i:
+        return True
+    elif n % i == 0:
+        return False
+    else:
+       return is_prime(n, i + 1)
 
-if m == 0:
+def cnt_primes(n):
+    count=0
+    i = 2
+    while(i<=n):
+         if is_prime(i):
+           count+=1
+         i+=1
+    print("# of prime numbers = ",count)
+cnt_primes(5)
 
-return 0
-
-if is_prime(m):
-
-return 1 + cnt_primes(m-1)
-
-else:
-
-return cnt_primes(m-1)
 
 
 
@@ -106,7 +111,9 @@ print(cal(5)) # 15
 print(cal(8)) # 0
 
 
-QUESTION 6def checking(n):
+QUESTION 6
+
+def checking(n):
     if n<=0:
         print("Number should be positive integer ")
         return 
